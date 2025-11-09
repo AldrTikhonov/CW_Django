@@ -1,0 +1,15 @@
+{% extends "mailing/base.html" %}
+
+
+{% block title %}Список рассылок{% endblock %}
+
+{% block content %}
+<h2>Список рассылок</h2>
+<ul class="list-group">
+    {% for mailing in object_list %}
+        <li class="list-group-item">
+            <a href="{% url 'mailing:mailing_detail' mailing.pk %}">{{ mailing.message.subject }}</a> - {{ mailing.start_datatime|date:"d.m.Y H:i" }} - {{ mailing.end_datetime|date:"d.m.Y H:i" }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
