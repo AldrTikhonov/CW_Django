@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 NULLABLE = {"blank": True, "null": True}
@@ -53,6 +54,7 @@ class Mailing(models.Model):
     status = models.CharField(max_length=25, verbose_name="Статус", choices=STATUS_CHOICES, default=CREATED)
     message = models.ForeignKey(Message, verbose_name="Сообщение", on_delete=models.CASCADE)
     clients = models.ManyToManyField(Client, verbose_name="Клиенты")
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Рассылка"

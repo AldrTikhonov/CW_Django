@@ -1,0 +1,12 @@
+{% extends 'mailing/base.html' %}
+
+{% block title %}Детали Рассылки{% endblock %}
+
+{% block content %}
+{% include 'mailing/header.html' %}
+<h2>Детали Рассылки</h2>
+<p>Сообщение: {{ mailing.message }}</p>
+<p>ID: {{mailing.id}}</p>
+<p>Клиенту: {{ mailing.client }}</p>
+<p>Дата создания: {{mailing.start_datetime|date:"d.M.Y H:i"}}</p>
+{% endblock %}

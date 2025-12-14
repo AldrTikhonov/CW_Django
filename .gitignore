@@ -215,3 +215,48 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+.secret.txt/
+.secret.txt
+
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mailing Service</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Сервис управления рассылок сообщений</h1>
+
+        <p class="card-text">{{ mailing }}</p>
+
+
+        <a class="p-4 btn btn-outline-primary" href="#">Список Сообщений</a>
+        <a class="p-4 btn btn-outline-primary" href="#">Добавить Сообщение</a>
+        <a class="p-4 btn btn-outline-primary" href="#">Список Рассылок</a>
+        <a class="p-4 btn btn-outline-primary" href="#">Добавить Рассылку</a>
+        <a class="p-4 btn btn-outline-primary" href="#">Вернуться на главную страницу</a>
+
+    </div>
+
+    <div class="container mt-5">
+        <h3 class="mb-4">Статистика рассылок</h3>
+            <ul>
+                <li>Общее количество рассылок: {{ total_mailings }}</li>
+                <li>Активные рассылки: {{ active_mailings }}</li>
+                <li>Уникальных получателей: {{ unique_recipients }}</li>
+            </ul>
+    </div>
+
+
+    <script src="/static/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>

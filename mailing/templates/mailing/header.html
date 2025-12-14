@@ -1,0 +1,10 @@
+<header>
+    <h1>Сервис управления рассылками</h1>
+    <p>Добро пожаловать в наш сервис!</p>
+    <nav>
+        <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:mailing_list' %}">Список Рассылок</a>
+        <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:mailing_create' %}">Добавить Рассылку</a>
+        <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:message_list' %}">Список Сообщений</a>
+        <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:message_create' %}">Добавить Сообщение</a>
+    </nav>
+</header>
