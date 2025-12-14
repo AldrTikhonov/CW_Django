@@ -1,13 +1,14 @@
 {% extends 'mailing/base.html' %}
 
-{% block title %}Удалить Mailing{% endblock %}
+{% block title %}Удаление рассылки{% endblock %}
 
 {% block content %}
 {% include 'mailing/header.html' %}
-<h2>Удалить Mailing</h2>
+<h2>Удаление рассылки</h2>
+<p>Вы действительно хотите удалить рассылку?</p>
 <form method="post">
     {% csrf_token %}
-    <button type="submit" class="p-2 btn btn-danger"> Удалить</button>
+    <button type="submit" class="p-2 btn btn-danger">Подтвердить</button>
     <a href="{% url 'mailing:mailing_list' %}" class="p-2 btn btn-outline-primary">Отменить</a>
 </form>
 {% endblock %}

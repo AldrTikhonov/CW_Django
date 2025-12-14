@@ -16,13 +16,14 @@ class StyleFormMixin:
 class MailingForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Mailing
-        fields = ["status", "message", "clients"]
+        fields = "__all__"
+        # fields = ["status", "message", "clients"]
 
 
 class ClientForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Client
-        fields = ["email", "full_name", "comment"]
+        fields =   ["email", "full_name", "comment"]
 
 
 class MessageForm(StyleFormMixin, ModelForm):

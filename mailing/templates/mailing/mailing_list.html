@@ -8,7 +8,7 @@
 <ul class="list-group">
     {% for mailing in object_list %}
         <li class="list-group-item">
-            {{mailing.message.subject}} - {{mailing.start_datetime|date:"d.M.Y H:i"}} - {{mailing.end_datetime|date:"d.M.Y H:i" }}
+            <a href="{% url 'mailing:mailing_detail' mailing.pk %}">{{mailing.message.subject}}</a> - {{mailing.start_datetime|date:"d.M.Y H:i"}} - {{mailing.end_datetime|date:"d.M.Y H:i" }}
         </li>
     {% endfor %}
 </ul>
