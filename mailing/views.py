@@ -106,7 +106,7 @@ class MailingListView(ListView):
     Класс, представляющий отображения списка рассылок.
     """
     model = Mailing
-    template_name = "mailing/mailing_list_1.html"
+    template_name = "mailing/mailing_list.html"
     context_object_name = "mailing"
 
 
