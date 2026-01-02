@@ -3,14 +3,15 @@
 {% block title %}Детали рассылки{% endblock %}
 
 {% block content %}
-{% include 'mailing/header.html' %}
+<!--{% include 'mailing/header.html' %}-->
 <h2>Детали рассылки</h2>
-<p>Сообщение: {{ mailing.message }}</p>
+<p>Сообщение: {{ mailing.message.body }}</p>
 <p>ID: {{ mailing.id }}</p>
-<p>Клиенту: {{ mailing.client }}</p>
+<p>Клиенту: {{ object.clients }}</p>
 <p>Дата создания: {{ mailing.start_datetime|date:"d.M.Y H:i" }}</p>
-<a href="{% url 'mailing:mailing_update' mailing.pk %}" class="btn btn-secondary">Редактировать</a>
-<a href="{% url 'mailing:mailing_delete' mailing.pk %}" class="btn btn-danger">Удалить</a>
-<a href="{% url 'mailing:mailing_list' %}" class="btn btn-primary">Вернуться к списку</a>
+<a href="{% url 'mailing:mailing_update' mailing.pk %}" class="p-2 btn btn-outline-primary">Редактировать</a>
+<a href="{% url 'mailing:launch' mailing.pk %}" class="p-2 btn btn-outline-primary">Отправить</a>
+<a href="{% url 'mailing:mailing_delete' mailing.pk %}" class="p-2 btn btn-outline-danger">Удалить</a>
+<a href="{% url 'mailing:mailing_list' %}" class="p-2 btn btn-outline-primary">Вернуться к списку</a>
 
 {% endblock %}

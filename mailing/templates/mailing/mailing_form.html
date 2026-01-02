@@ -3,12 +3,12 @@
 {% block title %}Форма для рассылки{% endblock %}
 
 {% block content %}
-{% include 'mailing/header.html' %}
+<!--{% include 'mailing/header.html' %}-->
 <h2>Форма для рассылки</h2>
 <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="p-2 btn btn-outline-primary" >Сохранить</button>
+    <button type="submit" class="p-2 btn btn-outline-primary">Сохранить</button>
     <a href="{% url 'mailing:mailing_list' %}" class="p-2 btn btn-outline-primary">Отменить</a>
 </form>
 {% endblock %}

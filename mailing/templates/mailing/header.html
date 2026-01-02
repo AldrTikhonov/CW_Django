@@ -1,10 +1,18 @@
 <header>
+    <main style="display: flex; justify-content: center; align-items: center; padding: 20px;"></main>
+    <div style="text-align: center; margin: 0 auto;">
     <h1>Управление рассылками</h1>
-    <p>Добро пожаловать в наш сервис!</p>
-    <nav>
-        <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:mailing_list' %}">Список рассылок</a>
-        <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:mailing_create' %}">Создать рассылку</a>
-        <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:message_list' %}">Список сообщений</a>
-        <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:message_create' %}">Создать сообщение</a>
-    </nav>
+    {% if user.is_authenticated %}
+        <p>Вы верифицированы, как <strong>{{user.email}}</strong>.</p>
+    {% else %}
+        <p>Добро пожаловать в наш сервис!</p>
+    {% endif %}
+        <a href="{% url 'mailing:mailing_create' %}" class="p-2 btn btn-outline-primary">Создать рассылку</a>
+        <a href="{% url 'mailing:message_create' %}" class="p-2 btn btn-outline-primary">Создать сообщение</a>
+        <a href="{% url 'mailing:client_create' %}" class="p-2 btn btn-outline-primary">Добавить клиента</a>
+        <a class="p-2 btn btn-outline-primary" href="{% url 'mailing:attempt_list' %}">Список попыток</a>
+        </div>
+        <p>Количество рассылок всего: {{mailings.count}}</p>
+        <p>Количество активных рассылок: {{active_mailings.count}}</p>
+        <p>Количество уникальных клиентов: {{clients.count}}</p>
 </header>

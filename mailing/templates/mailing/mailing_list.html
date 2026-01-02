@@ -1,10 +1,10 @@
 {% extends 'mailing/base.html' %}
 
-{% block title %}Детали сообщения{% endblock %}
+{% block title %}Детали рассылки{% endblock %}
 
 {% block content %}
 {% include 'mailing/header.html' %}
-<h2>Список Рассылок</h2>
+<h2>Список рассылок</h2>
 <ul class="list-group">
     {% for mailing in object_list %}
         <li class="list-group-item">

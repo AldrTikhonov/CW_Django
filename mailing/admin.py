@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Client, Message, Mailing, MailingAttempt
+
+from .models import Client, Mailing, MailingAttempt, Message
+
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
@@ -16,15 +18,23 @@ class MessageAdmin(admin.ModelAdmin):
 
 @admin.register(Mailing)
 class MailingAdmin(admin.ModelAdmin):
-    list_display = ("id", "start_datetime", "status", "get_message_subject", "get_clients")
+    list_display = (
+        "id",
+        "start_datetime",
+        "status",
+        "get_message_subject",
+        "get_clients",
+    )
     search_fields = ("status", "get_message_subject", "clients_email")
 
     def get_message_subject(self, obj):
         return obj.message.subject
+
     get_message_subject.short_description = "Message Subject"
 
     def get_clients(self, obj):
         return ", ".join(client.email for client in obj.clients.all())
+
     get_clients.short_description = "Clients"
 
 

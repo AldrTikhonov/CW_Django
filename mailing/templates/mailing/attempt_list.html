@@ -1,0 +1,24 @@
+{% extends 'mailing/base.html' %}
+
+{% block title %}Список попыток{% endblock %}
+
+{% block content %}
+{% include 'mailing/header.html' %}
+<h2>Список попыток</h2>
+
+{% for attempt in attempts %}
+<ul class="list-group">
+        <li class="attempt-item">
+            <h5><strong>Попытка:</strong> {{ attempt.mailing }}</h5>
+            <p><strong>Дата и время:</strong> {{ attempt.attempt_datetime }}</p>
+            <p><strong>Статус:</strong>
+            <span class="status-{{ attempt.status|lower }}">{{ attempt.status }}</span>
+            </p>
+        </li>
+
+</ul>
+{% endfor %}
+{% endblock %}
+
+
+
