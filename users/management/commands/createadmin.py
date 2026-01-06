@@ -1,11 +1,11 @@
-from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
+from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
         User = get_user_model()
-        user = User.objects.create(email = "admin@mail.ru")
+        user = User.objects.create(email="admin@mail.ru")
         user.set_password("qwer123")
         user.is_active = True
         user.is_staff = True
@@ -13,4 +13,6 @@ class Command(BaseCommand):
 
         user.save()
 
-        self.stdout.write(self.style.SUCCESS(f"Successfully created admin with email {user.email}!"))
+        self.stdout.write(
+            self.style.SUCCESS(f"Successfully created admin with email {user.email}!")
+        )

@@ -1,6 +1,6 @@
-from django.forms import ModelForm, BooleanField
+from django.forms import BooleanField, ModelForm
 
-from .models import Mailing, Client, Message, MailingAttempt
+from .models import Client, Mailing, MailingAttempt, Message
 
 
 class StyleFormMixin:
@@ -8,27 +8,28 @@ class StyleFormMixin:
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             if isinstance(field, BooleanField):
-                field.widget.attrs['class'] = "form-check-input"
+                field.widget.attrs["class"] = "form-check-input"
             else:
-                field.widget.attrs['class'] = "form-control"
+                field.widget.attrs["class"] = "form-control"
 
 
 class MailingForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Mailing
         fields = "__all__"
+        exclude = ["owner"]
         # fields = ["status", "message", "clients"]
 
 
 class ClientForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Client
-        fields =   ["email", "full_name", "comment"]
+        fields = ["email", "full_name", "comment"]
 
 
 class MessageForm(StyleFormMixin, ModelForm):
     class Meta:
-        model =  Message
+        model = Message
         fields = ["subject", "body"]
 
 
